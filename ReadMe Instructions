@@ -1,0 +1,19 @@
+*********************************
+To Run Test
+*********************************
+
+clone project from the git repository
+or download the project to work directory.
+
+1.) Ensure you have Maven installed on your computer
+2.) from the CMD -> Change directory to the project directory
+3.) run MVN test
+
+Alternately
+
+import project to IDE such eclipse/intelliJ
+1.) Run as JUnit tests
+
+
+NOTE:
+this configured to use an H2 in memory DB
