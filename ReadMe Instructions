@@ -9,11 +9,15 @@ or download the project to work directory.
 2.) from the CMD -> Change directory to the project directory
 3.) run MVN test
 
-Alternately
+*Alternately
 
 import project to IDE such eclipse/intelliJ
 1.) Run as JUnit tests
 
+
+****start application*****
+to run spring boot application 
+1.) mvn spring-boot:run
 
 NOTE:
 this configured to use an H2 in memory DB
