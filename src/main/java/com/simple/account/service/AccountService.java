@@ -60,9 +60,11 @@ public class AccountService implements InitializingBean{
 	}
 	
 	
-	public AccountSummary getStatement(Long accountNumber) {
+	public AccountSummary getStatement(Long accountNumber) throws ResourceNotFoundException {
 		Optional<Account> account = repository.findById(accountNumber);
-		return getAccountSummary(account.get());
+		if (account.isPresent()) {
+			return getAccountSummary(account.get());
+		} throw new ResourceNotFoundException("account not found");
 	}
 	
 	
