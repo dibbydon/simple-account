@@ -19,5 +19,8 @@ import project to IDE such eclipse/intelliJ
 to run spring boot application 
 1.) mvn spring-boot:run
 
+to view pre set account statement:
+http://localhost:8080/statement?accountNumber=30000
+
 NOTE:
 this configured to use an H2 in memory DB

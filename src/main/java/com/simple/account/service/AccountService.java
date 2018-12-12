@@ -1,11 +1,13 @@
 package com.simple.account.service;
 
 import java.math.BigDecimal;
+import static com.simple.account.constant.TransactionCode.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +17,12 @@ import com.simple.account.model.Account;
 import com.simple.account.model.AccountSummary;
 import com.simple.account.model.AccountTransaction;
 import com.simple.account.model.AccountTransfer;
+import com.simple.account.model.AccountType;
 import com.simple.account.model.AccountTransactionSummary;
 import com.simple.account.repository.AccountRepository;
 
 @Service
-public class AccountService {
+public class AccountService implements InitializingBean{
 	
 	@Autowired
 	private AccountRepository repository;
@@ -71,6 +74,19 @@ public class AccountService {
 		 return new AccountSummary(account.getAccountNumber(), account.getBalance(), tranSummary);
 		
 	}
+
+
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		Account account = new Account(30000L, AccountType.CA, new BigDecimal(1000));
+		AccountTransaction transaction2 = new AccountTransaction(account, INTERNAL_TRANS, null, new BigDecimal(200), new BigDecimal(1000));
+		AccountTransaction transaction1 = new AccountTransaction(account, INTERNAL_TRANS, new BigDecimal(200), null, new BigDecimal(1200));
+		account.addTransactions(transaction2);
+		account.addTransactions(transaction1);
+		repository.saveAndFlush(account);
+	}
+	
+	
 
 
 }
