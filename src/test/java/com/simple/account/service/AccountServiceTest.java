@@ -4,9 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -27,8 +25,7 @@ import com.simple.account.repository.AccountRepository;
 @RunWith(MockitoJUnitRunner.class)
 public class AccountServiceTest {
 	
-	@Rule
-	public ExpectedException thrown = ExpectedException.none();
+	
    
 	@InjectMocks
 	private AccountService accountService;

@@ -20,6 +20,7 @@ import static com.simple.account.constant.TransactionCode.*;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -51,7 +52,7 @@ public class AccountTransferControllerTest {
 		AccountTransfer accountTransfer = new AccountTransfer(10000L, 20000L, new BigDecimal(220), INTERNAL_TRANS);
 		
 		List<AccountTransactionSummary> transactionSummaryList = new ArrayList<>();
-		AccountTransactionSummary transactionSummary = new AccountTransactionSummary(11000L, 10000L, INTERNAL_TRANS, null, new BigDecimal(220), new BigDecimal(780));
+		AccountTransactionSummary transactionSummary = new AccountTransactionSummary(11000L, 10000L, INTERNAL_TRANS, null, new BigDecimal(220), new BigDecimal(780), new Date());
 		transactionSummaryList.add(transactionSummary);
 		
 		given(accountService.transfer(any())).willReturn(new AccountSummary(10000L, new BigDecimal(780), transactionSummaryList));

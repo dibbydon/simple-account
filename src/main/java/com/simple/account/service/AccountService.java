@@ -44,7 +44,7 @@ public class AccountService implements InitializingBean{
 			throw new ResourceNotFoundException(String.format("account with account number %s found", accountNumberToCredit));
 		} else if (amount.compareTo(accountToDebit.get().getBalance()) == 1) {
 			throw new InsufficientFundException("insufficient balance amount");
-	    }else {
+	    } else {
 		    accountToDebit.get().debitAccount(amount);
 		    AccountTransaction debitTransaction = new AccountTransaction(accountToDebit.get(), accountTransfer.getReference(), null, accountTransfer.getAmount(), accountToDebit.get().getBalance());
 		    accountToDebit.get().addTransactions(debitTransaction);
@@ -70,10 +70,10 @@ public class AccountService implements InitializingBean{
 	
 	AccountSummary getAccountSummary(Account account) {
 		List<AccountTransactionSummary> tranSummary = new ArrayList<>();
-		account.getTransactions().forEach(at -> { AccountTransactionSummary acctTranSummary = new AccountTransactionSummary(at.getTransactionId(), at.getAccount().getAccountNumber(), at.getReference(), at.getCreditAmount(),at.getDebitAmount(), at.getBalance());
+		account.getTransactions().forEach(at -> { AccountTransactionSummary acctTranSummary = new AccountTransactionSummary(at.getTransactionId(), at.getAccount().getAccountNumber(), at.getReference(), at.getCreditAmount(),at.getDebitAmount(), at.getBalance(), at.getCreateDate());
 				                                  tranSummary.add(acctTranSummary);
 										});
-		 return new AccountSummary(account.getAccountNumber(), account.getBalance(), tranSummary);
+		return new AccountSummary(account.getAccountNumber(), account.getBalance(), tranSummary);
 		
 	}
 

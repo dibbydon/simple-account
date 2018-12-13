@@ -1,6 +1,7 @@
 package com.simple.account.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 public class AccountTransactionSummary {
 	private Long transactionId;
@@ -9,14 +10,16 @@ public class AccountTransactionSummary {
 	private BigDecimal creditAmount;
 	private BigDecimal debitAmount;
 	private BigDecimal balance;
+	private Date createDate;
 	
-	public AccountTransactionSummary(Long transactionId, Long accountId, String reference, BigDecimal creditAmount, BigDecimal debitAmount, BigDecimal balance) {
+	public AccountTransactionSummary(Long transactionId, Long accountId, String reference, BigDecimal creditAmount, BigDecimal debitAmount, BigDecimal balance, Date date) {
 		this.transactionId = transactionId;
 		this.accountId = accountId;
 		this.reference = reference;
 		this.creditAmount = creditAmount;
 		this.debitAmount= debitAmount;
 		this.balance = balance;
+		this.createDate = date;
 	}
 	
 	public Long getTransactionId() {
@@ -36,5 +39,8 @@ public class AccountTransactionSummary {
 	}
 	public BigDecimal getBalance() {
 		return balance;
+	}
+	public Date getCreateDate() {
+		return createDate;
 	}
 }

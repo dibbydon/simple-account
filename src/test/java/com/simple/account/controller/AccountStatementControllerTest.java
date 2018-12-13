@@ -10,6 +10,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.junit.After;
@@ -48,7 +49,7 @@ public class AccountStatementControllerTest {
 	@Test
 	public void givenAnAccountNumberShouldReturntheAccountSummary() throws Exception {
 		List<AccountTransactionSummary> transactionSummaryList = new ArrayList<>();
-		AccountTransactionSummary transactionSummary = new AccountTransactionSummary(11000L, 10000L, INTERNAL_TRANS, null, new BigDecimal(220), new BigDecimal(780));
+		AccountTransactionSummary transactionSummary = new AccountTransactionSummary(11000L, 10000L, INTERNAL_TRANS, null, new BigDecimal(220), new BigDecimal(780), new Date());
 		transactionSummaryList.add(transactionSummary);
 		
 		given(accountService.getStatement(anyLong())).willReturn(new AccountSummary(10000L, new BigDecimal(780), transactionSummaryList));
