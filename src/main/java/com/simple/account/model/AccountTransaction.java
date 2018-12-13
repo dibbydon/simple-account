@@ -42,7 +42,7 @@ public class AccountTransaction implements Serializable{
 	@Column(name="TRAN_BAL")
 	private BigDecimal balance;
 	@Column(name="TRAN_DATE")
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createDate;
 	
 	public AccountTransaction() {
