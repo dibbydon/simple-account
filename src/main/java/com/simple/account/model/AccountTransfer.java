@@ -8,6 +8,9 @@ public class AccountTransfer {
     private BigDecimal amount;
     private String reference;
     
+    public AccountTransfer(){
+    }
+    
     public AccountTransfer(Long accountNumberToDebit, Long AccountNumberToCredit, BigDecimal amount, String reference) {
     	this.accountNumberToDebit = accountNumberToDebit;
     	this.accountNumberToCredit = AccountNumberToCredit;

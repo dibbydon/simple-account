@@ -19,8 +19,7 @@ public class SwaggerConfig extends WebMvcConfigurationSupport {
 	        return new Docket(DocumentationType.SWAGGER_2)  
 	          .select()                                  
 	          .apis(RequestHandlerSelectors.basePackage("com.simple.account.controller"))              
-	          .paths(PathSelectors.ant("/transfer"))  
-	          .paths(PathSelectors.ant("/statement"))
+	          .paths(PathSelectors.any())  
 	          .build();                                           
 	    }
 	    
