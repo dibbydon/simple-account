@@ -21,6 +21,8 @@ to run spring boot application
 
 to view pre set account statement:
 http://localhost:8080/statement?accountNumber=30000
+http://localhost:8080/v2/api-docs
+http://localhost:8080/swagger-ui.html
 
 NOTE:
 this configured to use an H2 in memory DB
