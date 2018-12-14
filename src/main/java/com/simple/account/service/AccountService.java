@@ -80,7 +80,7 @@ public class AccountService implements InitializingBean{
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		Account account = new Account(30000L, AccountType.CA, new BigDecimal(1000));
+		Account account = new Account(30000L, AccountType.CURRENT, new BigDecimal(1000));
 		AccountTransaction transaction2 = new AccountTransaction(account, INTERNAL_TRANS, null, new BigDecimal(200), new BigDecimal(1000));
 		AccountTransaction transaction1 = new AccountTransaction(account, INTERNAL_TRANS, new BigDecimal(200), null, new BigDecimal(1200));
 		account.addTransactions(transaction2);

@@ -38,13 +38,13 @@ public class AccountRepositoryTest {
 
 	@Test
 	public final void givenAccountTosPersistShouldRetrieveWithSameValue() {
-		Account account = new Account(10000L, AccountType.CA, new BigDecimal(1000));
+		Account account = new Account(10000L, AccountType.CURRENT, new BigDecimal(1000));
 		entityManager.persistAndFlush(account);
 		Optional<Account> savedAccount = repository.findById(10000L);
 		assertNotNull(savedAccount);
 		assertThat("expected value not returned", savedAccount.get().getAccountNumber(), is(10000L));
 		assertEquals("expected value not returned", new BigDecimal(1000), savedAccount.get().getBalance());
-		assertThat("expected value not returned", savedAccount.get().getAccountType(), is(AccountType.CA) );
+		assertThat("expected value not returned", savedAccount.get().getAccountType(), is(AccountType.CURRENT) );
 		
 	}
 

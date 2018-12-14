@@ -42,8 +42,8 @@ public class SimpleAccountApplicationTests {
     
 	@Test
 	public void GivenAnAccountTransferRequestShouldPersistAndConfirmBalances() throws Exception {
-		payerAccount = new Account(10000L, AccountType.SA, new BigDecimal(2000));
-		payeeAccount = new Account(20000L, AccountType.SA, new BigDecimal(800));
+		payerAccount = new Account(10000L, AccountType.SAVINGS, new BigDecimal(2000));
+		payeeAccount = new Account(20000L, AccountType.SAVINGS, new BigDecimal(800));
 		repository.save(payerAccount);
 		repository.save(payeeAccount);
 		
@@ -59,7 +59,7 @@ public class SimpleAccountApplicationTests {
 		
 		
 	    assertThat(retrievedPayerAccount.get().getAccountNumber(), is(10000L));
-	    assertThat(retrievedPayerAccount.get().getAccountType(), is(AccountType.SA));
+	    assertThat(retrievedPayerAccount.get().getAccountType(), is(AccountType.SAVINGS));
 	    assertThat(retrievedPayerAccount.get().getBalance().setScale(0), is(new BigDecimal(1800)));
 	    
 	    assertThat(payerTransactions.size(), is(1));
@@ -67,7 +67,7 @@ public class SimpleAccountApplicationTests {
 	    assertThat(payerTransactions.get(0).getBalance().setScale(0), is(new BigDecimal(1800)));
 	    
 	    assertThat(retrievedPayeeAccount.get().getAccountNumber(), is(20000L));
-	    assertThat(retrievedPayeeAccount.get().getAccountType(), is(AccountType.SA));
+	    assertThat(retrievedPayeeAccount.get().getAccountType(), is(AccountType.SAVINGS));
 	    assertThat(retrievedPayeeAccount.get().getBalance().setScale(0), is(new BigDecimal(1000)));
 	    
 	    assertThat(payeeTransactions.size(), is(1));
