@@ -2,10 +2,16 @@ package com.simple.account.model;
 
 import java.math.BigDecimal;
 
+import javax.validation.constraints.NotNull;
+
 public class AccountTransfer {
+	@NotNull
     private Long accountNumberToDebit;
+	@NotNull
     private Long accountNumberToCredit;
+	@NotNull
     private BigDecimal amount;
+	@NotNull
     private String reference;
     
     public AccountTransfer(){

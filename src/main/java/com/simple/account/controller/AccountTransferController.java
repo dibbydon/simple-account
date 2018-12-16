@@ -1,5 +1,7 @@
 package com.simple.account.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +23,7 @@ public class AccountTransferController {
 	private AccountService accountService;
 	
 	@PostMapping(produces="application/json")
-	public ResponseEntity<AccountSummary> transfer(@RequestBody AccountTransfer accountTransfer) throws ResourceNotFoundException{
+	public ResponseEntity<AccountSummary> transfer(@RequestBody @Valid AccountTransfer accountTransfer) throws ResourceNotFoundException{
 		AccountSummary accountSummary = accountService.transfer(accountTransfer);
 		return new ResponseEntity<>(accountSummary, HttpStatus.OK);
 	}
