@@ -3,7 +3,9 @@ package com.simple.account.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class AccountTransactionSummary {
+import org.springframework.hateoas.ResourceSupport;
+
+public class AccountTransactionSummary extends ResourceSupport {
 	private Long transactionId;
 	private Long accountId;
 	private String reference;

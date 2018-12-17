@@ -3,6 +3,8 @@ package com.simple.account.controller;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.Link;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,6 +27,8 @@ public class AccountTransferController {
 	@PostMapping(produces="application/json")
 	public ResponseEntity<AccountSummary> transfer(@RequestBody @Valid AccountTransfer accountTransfer) throws ResourceNotFoundException{
 		AccountSummary accountSummary = accountService.transfer(accountTransfer);
+		Link selfLink = linkTo(AccountTransferController.class).slash(accountSummary.getAccountNumber()).withSelfRel();
+		accountSummary.add(selfLink);
 		return new ResponseEntity<>(accountSummary, HttpStatus.OK);
 	}
 	

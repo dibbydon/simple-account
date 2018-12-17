@@ -3,7 +3,9 @@ package com.simple.account.model;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class AccountSummary {
+import org.springframework.hateoas.ResourceSupport;
+
+public class AccountSummary extends ResourceSupport {
 	
 	private Long accountNumber;
 	private BigDecimal balance;
