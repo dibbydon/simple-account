@@ -15,6 +15,10 @@ public class AccountTransfer {
     private String reference;
     
     public AccountTransfer(){
+    	this.accountNumberToDebit = 0L;
+    	this.accountNumberToCredit = 0L;
+    	this.amount = BigDecimal.ZERO;
+    	this.reference = "";
     }
     
     public AccountTransfer(Long accountNumberToDebit, Long AccountNumberToCredit, BigDecimal amount, String reference) {
